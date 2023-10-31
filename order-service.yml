@@ -13,8 +13,8 @@ spring:
       ddl-auto: update
   application:
     name: ORDER-SERVICE
-  config:
-    import: configserver:http://${CONFIG_SERVER_URL:localhost}:8080
+  # config:
+  #   import: configserver:http://${CONFIG_SERVER_URL:localhost}:8080
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
