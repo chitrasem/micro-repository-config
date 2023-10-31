@@ -1,0 +1,30 @@
+server:
+  port: 9090
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ODER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+        - id: PAYMENT-SERVICE
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+        - id: PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/product/**
+  
+jwt:
+  secrete: mySecreteKey
+  expireMs: 120000
+  refrEshexpireMs: 120000
+logging:
+  pattern:
+    level: "$5p{spring.application.name:},%X{traceId:-},%X{spanID:-}"
