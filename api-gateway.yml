@@ -22,7 +22,7 @@ spring:
             - Path=/product/**
   
 jwt:
-  secrete: mySecreteKey
+  secret: mySecreteKey
   expireMs: 120000
   refrEshexpireMs: 120000
 logging:
