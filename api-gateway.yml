@@ -21,9 +21,17 @@ spring:
           predicates:
             - Path=/product/**
             
+#eureka:
+ # instance:
+  #  instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}  
   
 jwt:
   secret: mySecretKey
