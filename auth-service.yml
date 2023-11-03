@@ -5,8 +5,8 @@ spring:
   datasource:
     #url: jdbc:mysql://${DB_HOST:http://localhost:3306}/userdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Turkey
     url: ${DB_HOST}
-    DB_USERNAME: root
-    DB_PASSWORD: root
+    username : ${DB_USERNAME}
+    password : ${DB_PASSWORD}
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
